@@ -11,6 +11,7 @@
 
 </head>
 <body data-bs-theme="dark">
+    
     {{$body}}
 </body>
 </html>
