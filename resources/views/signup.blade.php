@@ -1,7 +1,4 @@
 <x-general>
-    <x-slot:title>
-        Signup
-    </x-slot:title>
     <x-slot:body>
         <x-login-signup-form>
             <x-slot:title>

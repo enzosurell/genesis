@@ -1,8 +1,4 @@
 <x-general>
-    <x-slot:title>
-        Login
-    </x-slot:title>
-
     <x-slot:body>
         <x-login-signup-form>
             <x-slot:title>
