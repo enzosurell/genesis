@@ -1,12 +1,9 @@
 <x-general>
     <x-slot:body>
-        <x-login-signup-form>
+        <x-login-signup-form action="/login" method="post">
             <x-slot:title>
                 LOGIN
             </x-slot:title>
-            <x-slot:action>
-                /login
-            </x-slot:action>
             <x-slot:fields>
                 <input type="text" name="name" class="form-control mb-3" placeholder="Username">
                 <input type="password" name="password" class="form-control mb-3" placeholder="Password">

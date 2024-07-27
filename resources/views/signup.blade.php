@@ -1,12 +1,9 @@
 <x-general>
     <x-slot:body>
-        <x-login-signup-form>
+        <x-login-signup-form action="/login" method="post">
             <x-slot:title>
                 SIGNUP
             </x-slot:title>
-            <x-slot:action>
-                /register
-            </x-slot:action>
             <x-slot:fields>
                 <input type="text" name="name" class="form-control mb-3" placeholder="Username">
                 <input type="text" name="email" class="form-control mb-3" placeholder="E-mail">

@@ -19,6 +19,6 @@ Route::any('/asd', function () {
     return view('asd');
 });
 
-//to controllers
+//------------> to controllers
 
 Route::any('/login', [userController::class, 'login']);
