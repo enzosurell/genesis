@@ -15,10 +15,7 @@ Route::any('/home', function () {
     return view('home');
 });
 
-Route::any('/asd', function () {
-    return view('asd');
-});
-
 //------------> to controllers
 
 Route::any('/login', [userController::class, 'login']);
+Route::any('/register', [userController::class, 'register']);
