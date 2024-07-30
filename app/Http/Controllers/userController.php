@@ -18,12 +18,12 @@ class userController extends Controller
                 "fname" => 'required',
                 "lname" => 'required',
                 "name" => 'required',
-                "password" => "required",
-                "email" => "required"
+                "password" => 'required',
+                "email" => ['required','email'],
             ]
         );
         
-        User::create($fields);
+        User::factory()->create($fields);
 
         return redirect("/");
     }

@@ -4,11 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
 
 Route::any('/', function () {
-    return view('login');
+    return view('login.index');
 });
 
 Route::any('/signup', function () {
-    return view('signup');
+    return view('login.signup');
 });
 
 Route::any('/home', function () {
