@@ -11,6 +11,7 @@ class userController extends Controller
     {
         return redirect("/home");
     }
+    
     public function register(Request $req)
     {
         $fields = $req->validate(
