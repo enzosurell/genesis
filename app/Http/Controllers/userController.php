@@ -3,28 +3,56 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class userController extends Controller
 {
     public function login()
     {
-        return redirect("/home");
+        $data = request()->validate(
+            [
+                "name" => 'required',
+                "password" => ['required'],
+            ]
+        );
+        
+        if(Auth::attempt($data))
+        {
+            request()->session()->regenerate();
+            return redirect("/home");
+        }
+        else
+        {
+            throw ValidationException::withMessages([
+                'password' => 'Opps, authentication did not match!'
+            ]);
+        }
+        
     }
     
-    public function register(Request $req)
+    public function register()
     {
-        $fields = $req->validate(
+        $data = request()->validate(
             [
                 "fname" => 'required',
                 "lname" => 'required',
                 "name" => 'required',
-                "password" => 'required',
-                "email" => ['required','email'],
+                "password" => ['required','confirmed'],
+                "email" => ['required','email','unique:'.User::class.',email'],
             ]
         );
+
+        $user = User::factory()->create($data);
+
+        Auth::login($user);
         
-        User::factory()->create($fields);
+        return redirect("/home");
+    }
+
+    public function logout()
+    {
+        Auth::logout();
 
         return redirect("/");
     }

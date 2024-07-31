@@ -5,14 +5,8 @@
                 LOGIN
             </x-slot:title>
             <x-slot:fields>
-                <input type="text" name="name" class="form-control mb-3" placeholder="Username" required>
-                    @error('name')
-                        <p class="text-danger small" style="font-style: italic">{{ $message }}</p>
-                    @enderror
-                <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
-                    @error('password')
-                        <p class="text-danger small" style="font-style: italic">{{ $message }}</p>
-                    @enderror
+                <x-input-field type="text" name="name" placeholder="Username" :value="old('name')" required/>
+                <x-input-field type="password" name="password" placeholder="Password" :value="old('password')" required/>
                 <button name="login" class="btn btn-primary form-control mb-2">Login</button>
                 <a href="/signup">Signup</a>
             </x-slot:fields>

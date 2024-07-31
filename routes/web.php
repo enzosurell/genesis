@@ -3,13 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
 
-Route::view('/', 'login.index');
-
+Route::view('/', 'login.index')->name('login');
 Route::view('/signup', 'login.signup');
-
-Route::view('/home', 'home');
+Route::view('/home', 'home')->middleware('auth');
 
 //------------> to controllers
 
-Route::any('/login', [userController::class, 'login']);
-Route::any('/register', [userController::class, 'register']);
+Route::controller(userController::class)->group(function () {
+    Route::post('/login', 'login');
+    Route::post('/logout', 'logout');
+    Route::post('/register', 'register');
+});
