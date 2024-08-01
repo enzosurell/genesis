@@ -54,5 +54,6 @@ class userController extends Controller
     {
         Auth::logout();
         return redirect("/");
+        ////
     }
 }
