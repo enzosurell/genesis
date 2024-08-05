@@ -15,7 +15,7 @@
                 <div>
                     <label for="password" class="block text-sm font-medium leading-6 text-gray-900 dark:text-white">Password</label>
                     <div class="mt-2">
-                        <x-input-field id="password" name="password" type="password" autocomplete="current-password" :value="old('name')" required />
+                        <x-input-field id="password" name="password" type="password" autocomplete="current-password" :value="old('password')" required />
                     </div>
                 </div>
     
