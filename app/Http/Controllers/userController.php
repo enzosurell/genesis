@@ -17,10 +17,19 @@ class userController extends Controller
             ]
         );
         
+        /*
         if(Auth::attempt($data))
         {
             request()->session()->regenerate();
             return redirect("/home");
+        }
+        */
+
+        if( Auth::attempt(['name'=>$data['name'], 'password'=>$data['password']]) || 
+        Auth::attempt(['email'=>$data['name'], 'password'=>$data['password']] ))
+        {
+            request()->session()->regenerate();
+            return view("/home");
         }
         else
         {
@@ -37,9 +46,9 @@ class userController extends Controller
             [
                 "fname" => 'required',
                 "lname" => 'required',
-                "name" => 'required',
+                "name" => ['required','unique:users,name'],
                 "password" => ['required','confirmed'],
-                "email" => ['required','email','unique:'.User::class.',email'],
+                "email" => ['required','email','unique:users,email'],
             ]
         );
 

@@ -2,13 +2,31 @@
     <x-slot:body>
         <x-login-signup-form action="/login" method="post">
             <x-slot:title>
-                LOGIN
+                Sign in to your account
             </x-slot:title>
             <x-slot:fields>
-                <x-input-field type="text" name="name" placeholder="Username" :value="old('name')" required/>
-                <x-input-field type="password" name="password" placeholder="Password" :value="old('password')" required/>
-                <button name="login" class="btn btn-primary form-control mb-2">Login</button>
-                <a href="/signup">Signup</a>
+                <div>
+                    <label for="name" class="block text-sm font-medium leading-6 text-gray-900 dark:text-white">Username or Email</label>
+                    <div class="mt-2">
+                        <x-input-field id="name" name="name" type="name" autocomplete="name" :value="old('name')" required />
+                    </div>
+                </div>
+    
+                <div>
+                    <label for="password" class="block text-sm font-medium leading-6 text-gray-900 dark:text-white">Password</label>
+                    <div class="mt-2">
+                        <x-input-field id="password" name="password" type="password" autocomplete="current-password" :value="old('name')" required />
+                    </div>
+                </div>
+    
+                <div>
+                    <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
+                </div>
+
+                <p class="mt-10 text-center text-sm text-gray-500 dark:text-gray-300">
+                    Not a member?
+                <a href="/signup" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Sign Up for free</a>
+                </p>
             </x-slot:fields>
         </x-login-signup-form>
     </x-slot:body>
